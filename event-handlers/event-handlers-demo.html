@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Event Handlers</title>
+</head>
+
+<body>
+    <p>Hello! This document contains <a href="http://www.google.co.uk">lots of links</a> and
+        <a href="https://dylanbeattie.net">lots of
+            links</a> and <a href="https://fwdays.com/en/">lots of links</a>
+    </p>
+    <a href="#" id="my-link">mouse over!</a>
+    <script>
+        function verifyClick(e) {
+            let target = e.target;
+            if (target.tagName != 'A') return;
+
+            let href = target.getAttribute("href");
+            let message = `Are you sure you want to go to ${href}?`;
+            let ok = confirm(message);
+            if (!ok) e.preventDefault();
+        }
+
+        function highlightElement(e) {
+            e.target.style.color = 'yellow';
+        }
+
+        function removeHighlight(e) {
+            e.target.style.color = '';
+        }
+        let links = document.querySelectorAll("a");
+        links.forEach(function (link) {
+            link.addEventListener("mouseover", highlightElement);
+            link.addEventListener("mouseout", removeHighlight);
+        });
+
+        document.body.addEventListener("click", verifyClick);
+    </script>
+</body>
+
+</html>
