@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>HTML Templates Example</title>
+</head>
+<body>
+    <forum-post>
+        This is a message!
+        <p slot="post-name">Dylan Beattie</p>
+        <p slot="post-date">17 April 2021</p>
+    </forum-post>
+
+    <forum-post>
+        This post has a photo in it: 
+        <img src="my-photo.jpg" />
+        <h1 slot="post-name">LOUD BOB!</h1>
+        <audio slot="post-date" src="banana.mp3" autoplay></audio>
+    </forum-post>
+
+    <forum-post>
+        This post has a list in it!
+        <ul>
+            <li>Hey</li>
+            <li>Lists are cool</li>
+            <li>see?</li>
+        </ul>
+        <ol slot="post-name">
+            <li>Alice</li>
+            <li>Bob</li>
+            <li>Catherine</li>
+            <li>Dave</li>
+        </ol>
+    </forum-post>
+    <script>
+        class ForumPostElement extends HTMLElement {
+            constructor() {
+                super();
+                this.attachShadow({mode: 'open'});
+                this.template = document.createElement('template');
+                this.template.innerHTML = `
+                    <div style="border: 5px solid red; padding: 5px; margin: 5px;">
+                        <slot></slot>
+                        <hr />
+                        <slot name="post-name"></slot>
+                        <slot name="post-date"></slot>
+                    </div>`;
+            }
+            connectedCallback() {
+                let content = this.template.content;
+                let childNode = content.cloneNode(true);
+                this.shadowRoot.appendChild(childNode);
+            }
+        }
+        customElements.define("forum-post", ForumPostElement);
+    </script>
+</body>
+</html>
