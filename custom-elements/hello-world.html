@@ -10,9 +10,10 @@
         class HelloWorldElement extends HTMLElement {
             constructor() {
                 super();
-                this.innerHTML = "Hello World";
             }
-
+            connectedCallback() {
+                this.innerHTML = "<h1>Hello World!</h1>";
+            }
         }
         customElements.define("hello-world", HelloWorldElement);
     </script>
