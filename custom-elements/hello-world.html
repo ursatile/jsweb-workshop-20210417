@@ -4,15 +4,22 @@
         <title>Custom Elements</title>
     </head>
     <body>
-        <hello-world></hello-world>        
+        <hello-world name="fwdays" allcaps></hello-world>        
+        <hello-world name="fwdays"></hello-world>        
     </body>
     <script>
         class HelloWorldElement extends HTMLElement {
+            
             constructor() {
                 super();
+                this.name = this.getAttribute("name");
+                this.allcaps = (this.getAttribute("allcaps")!== null);
             }
-            connectedCallback() {
-                this.innerHTML = "<h1>Hello World!</h1>";
+
+            connectedCallback() {    
+                let message = `Hello ${ this.name }!`;
+                if (this.allcaps) message = message.toUpperCase();            
+                this.innerHTML = `<h1>${message}</h1>`;
             }
         }
         customElements.define("hello-world", HelloWorldElement);
