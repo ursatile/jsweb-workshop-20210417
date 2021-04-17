@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Web Components: Custom Events</title>
+    <script src="color-picker.js"></script>
+</head>
+
+<body>
+    <h1 id="the-headline">This is the headline. Click below to change the color.</h1>
+    <color-picker id="color-picker"></color-picker>
+</body>
+
+<script>
+    let picker = document.getElementById('color-picker');
+    picker.addEventListener('pick-color', function(e) {
+        let color = e.detail;
+        document.getElementById('the-headline').style.color = color;
+    });
+</script>
+
+</html>
