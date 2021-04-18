@@ -1,20 +1,5 @@
-class Game {
-    constructor(rowCount, colCount) {
-
-    }
-}
-
-class Renderer {
-    constructor(shadowRoot) {
-        this.root = shadowRoot;
-    }
-
-    render(game) {
-        let element = document.createElement('h1');
-        element.innerHTML = 'Hey!';
-        this.root.appendChild(element);
-    }
-}
+import { Game, Cell, Position } from './game.js';
+import Renderer from './renderer.js';
 
 class JSTrisGameElement extends HTMLElement {
     constructor() {
@@ -27,6 +12,7 @@ class JSTrisGameElement extends HTMLElement {
         let rowCount = parseInt(this.getAttribute("rows")) || 20;
         let colCount = parseInt(this.getAttribute("cols")) || 20;
         let game = new Game(rowCount, colCount);
+        game.addBlock();
         this.renderer.render(game);
     }
 }

@@ -1,0 +1,18 @@
+$block-size: 20px;
+div#game-grid {
+    background-color: #333;
+    margin: 10px auto;
+    width: (10 * $block-size) + 20;
+    display: grid;
+    grid-template: repeat(20, 1fr) / repeat(10, 1fr);
+    span {
+        border: 1px solid #000;
+        display: block;
+        width: $block-size;
+        height: $block-size;
+        &.orange-ricky {
+            border: 1px outset orange;
+            background-color: orange;
+        }
+    }
+}
