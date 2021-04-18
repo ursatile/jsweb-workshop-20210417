@@ -28,6 +28,7 @@ export default class MyCounterElement extends HTMLElement {
     }
 
     handleKeydown(event) {
+        event.preventDefault();
         switch(event.code) {
             case "ArrowUp": this.engine.increment(); break;
             case "ArrowDown": this.engine.decrement(); break;
