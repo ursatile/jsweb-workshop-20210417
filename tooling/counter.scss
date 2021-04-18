@@ -1,0 +1,28 @@
+$brand-color: purple;
+
+div.counter-wrapper {
+    border: 2px solid $brand-color;
+    border-radius: 8px;
+    display: inline-block;
+    padding: 8px;
+    span {
+        font-family: "Consolas";
+        font-weight: bold;
+        color: $brand-color;
+        font-size: 200%;
+    }
+}
+button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 200%;
+    margin: 8px;
+    width: 32px;
+    overflow: hidden;
+    border: 0;
+    background-color: $brand-color;
+    border-radius: 8px;
+    color: #fff;
+}
