@@ -12,3 +12,5 @@ describe('counting engine initialises', function() {
         expect(engine.count).toBe(expectedCount);
     });
 });
+
+
