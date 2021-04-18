@@ -18,9 +18,10 @@ export default class Renderer {
         this.root.appendChild(this.decrementButton);
         this.root.appendChild(div);
         this.root.appendChild(this.incrementButton);
+        this.update(counterEngine);
     }
 
     update(counterEngine) {
-        this.span.innerHTML = counterEngine.count;
+        this.span.innerHTML = counterEngine.count +" clicks";
     }
 }
