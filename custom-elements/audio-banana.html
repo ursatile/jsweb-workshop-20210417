@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Web Components: Extending Audio</title>
+</head>
+
+<body>
+    <audio is="banana-sound-effect" autoplay controls></audio>
+</body>
+
+<script>
+    class BananaSoundEffectElement extends HTMLAudioElement {
+        constructor() {
+            super();        
+            this.attachShadow({mode: 'open'});    
+        }
+        connectedCallback() {
+            this.setAttribute("src", "banana.mp3");
+        }
+    }
+    customElements.define("banana-sound-effect", BananaSoundEffectElement, { extends: "audio" });
+</script>
+
+</html>

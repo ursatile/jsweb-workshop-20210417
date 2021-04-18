@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Counting Engine</title>
+    <script src="counter.js" type="module"></script>
+</head>
+
+<body>
+    <h4>Pure JavaScript Web Components</h4>
+    <p>Architecture and Solution Structure</p>
+    <my-counter initial-value="25"></my-counter>
+    <p>Press the Up Arrow and Down Arrow keys to increment and decrement the counter.</p>
+    <hr />
+    <p>This project demonstrates how to isolate your HTML rendering and event handlers from the core application
+        logic of your JS web components.
+    </p>
+    <h4>Source Files:</h4>
+    <ul>
+        <li><a href="index.html">index.html</a> - this page</li>
+        <li><a href="counter.js">counter.js</a> - the JS file containing the custom element</li>
+        <li><a href="counting-engine.js">counting-engine.js</a> - the JS class containing the app logic.</li>
+        <li><a href="renderer.js">renderer.js</a> - the renderer class that translates the app logic into HTML.</li>
+        <li><a href="html.js">html.js</a> - helper class used by the renderer to render HTML</li>
+    </ul>
+    <p>Download the source: <a href="architecture.zip">architecture.zip</a></strong></p>
+    <hr />
+    <h4>Exercise:</h4>
+    <p>Modify the counter app as follows:</p>
+    <ul>
+        <li>Left-clicking on the counter with the mouse should <strong>increment</strong> the counter.</li>
+        <li>Pressing the spacebar should reset the counter to zero.</li>
+    </ul>
+    <hr />
+    <h4>A note about ES modules</h4>
+    <p>This project uses <code>&lt;script type="module"&gt;</code> and ES modules, so it <strong>will not work from a
+            file:// URL</strong></p>
+    <p>You'll need to run a local web server that serves <code>.js</code> files with the
+        <code>application/javascript</code> MIME type -
+        if you don't have one set up, check out <a href="https://github.com/rif/spark">rif/spark</a>, a tiny web server
+        written in Go
+        that will turn any folder on your machine into a website.</p>
+
+
+
+</body>
+
+</html>
