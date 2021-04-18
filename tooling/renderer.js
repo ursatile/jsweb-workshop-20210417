@@ -5,34 +5,9 @@ export default class Renderer {
         this.root = shadowRoot;
     }
     render(counterEngine) {
-        const cssRules = `div.counter-wrapper {
-            border: 2px solid #036;
-            border-radius: 8px;
-            display: inline-block;
-            padding: 8px;
-        }
-        button {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            font-size: 200%;
-            margin: 8px;
-            width: 32px;
-            overflow: hidden;
-            border: 0;
-            background-color: #036;
-            border-radius: 8px;
-            color: #fff;
-        }
-        div.counter-wrapper span {
-            font-family: Consolas;
-            font-weight: bold;
-            color: #036;
-            font-size: 200%;
-        }`;
-        const style = html.element('style', { type: "text/css" }, cssRules);
-        this.root.appendChild(style);
+        const cssLink = html.element('link', 
+            { "rel":"stylesheet", "href":"counter.css", "type": "text/css" });
+        this.root.appendChild(cssLink);
 
         this.incrementButton = html.element('button', {}, '+');
         this.decrementButton = html.element('button', {}, '–');
