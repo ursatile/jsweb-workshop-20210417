@@ -5,7 +5,6 @@ class ColorPickerElement extends HTMLElement {
     }
 
     connectedCallback() {
-        let picker = this;
         let style = document.createElement('style');
         style.innerHTML = `button { width: 32px; height: 32px; border: 1px solid #fff; border-radius: 16px; cursor: pointer;  } button:focus { outline: none; }`;
         this.shadowRoot.appendChild(style);
@@ -14,9 +13,9 @@ class ColorPickerElement extends HTMLElement {
         colors.forEach(color => {
             let button = document.createElement('button');
             button.style.backgroundColor = color;
-            button.addEventListener('click', function(e) {
+            button.addEventListener('click', () => {
                 let customEvent = new CustomEvent('pick-color', { detail: color });
-                picker.dispatchEvent(customEvent);
+                this.dispatchEvent(customEvent);
             });
             this.shadowRoot.appendChild(button);
         });

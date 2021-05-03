@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Text Formatter</title>
+	<script type="text/javascript" src="text-formatter.js" defer></script>
+</head>
+<body>
+	<p id="formatting-text">Text that may be formatted.</p>
+	<text-formatter id="text-formatter"></text-formatter>
+	<script type="text/javascript">
+		let formatter = document.getElementById("text-formatter");
+		let text = document.getElementById("formatting-text");
+		formatter.addEventListener("format-text", e => {
+			for (const [key, value] of Object.entries(e.detail)) {
+				text.style[key] = text.style[key] === value ? '' : value;
+			}
+		});
+	</script>
+</body>
+</html>
